@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS Quiz, categories, answers;
+DROP TABLE IF EXISTS quiz, categories, answers, question;
 
 CREATE TABLE categories (
     category VARCHAR(128) NOT NULL,
@@ -35,3 +35,20 @@ CREATE TABLE answers (
 ALTER TABLE answers ADD FOREIGN KEY (statement) REFERENCES question(statement);
 
 INSERT INTO answers VALUES ('En combien de temps Jupiter met-il de temps à faire un tour complet autour du soleil ?', '4 ans','8 ans','10 ans','12 ans');
+
+
+CREATE TABLE quiz (
+    id int NOT NULL primary key AUTO_INCREMENT,
+    question VARCHAR(128) NOT NULL,
+    choix_1 VARCHAR(128) NOT NULL,
+    choix_2 VARCHAR(128) NOT NULL,
+    choix_3 VARCHAR(128) NOT NULL,
+    choix_4 VARCHAR(128) NOT NULL,
+    reponse VARCHAR(128) NOT NULL,
+
+);
+
+
+INSERT INTO quiz VALUES ('En combien de temps Jupiter met-il de temps à faire un tour complet autour du soleil ?', '4 ans','8 ans','10 ans','12 ans','12 ans');
+INSERT INTO quiz VALUES ("Laquelle de ces planètes n'est pas tellurique ?", 'Mercure','Terre','Uranus','Vénus','Uranus');
+INSERT INTO quiz VALUES ("Combien de temps dure un cycle lunaire ?", '27,5 jours','29,5 jours','31,5 jours',"ça dépend si c'est une année bissextile",'29,5 jours');
